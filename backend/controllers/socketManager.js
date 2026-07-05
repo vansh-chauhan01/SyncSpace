@@ -6,7 +6,14 @@ let timeOnline = {};
 
 
 export const connectToSocket = (server) =>{
-    const io = new Server(server);
+    const io = new Server(server , {
+        cors : {
+            origin : "*",
+            methods : ["GET" , "POST"],
+            credentials : true,
+            allowHeaders : ["*"]
+        }
+    });
 
     io.on("connection" , (socket) =>{
 
@@ -31,7 +38,7 @@ export const connectToSocket = (server) =>{
 
 
         // we are sending id because so that reciever knows who is sending the message
-        // user1->server->user2
+        // user1 to server to user2
         socket.on("signal" , (id , message)=>{
             io.to(id).emit("signal" , message , socket.id); // send message to the user with the id of the user that is joining the call
         })
