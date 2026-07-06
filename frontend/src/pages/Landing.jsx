@@ -1,5 +1,6 @@
 import React from 'react'
 import "../App.css"
+import { Link } from 'react-router-dom'
 
 export default function LandingPage() {
     return (
@@ -17,9 +18,11 @@ export default function LandingPage() {
                 <div className='navlist'>
                     <p>Join as Guest</p>
                     <p>Register</p>
+                    <Link to= "/auth">
                     <div className='loginBtn' role='button'>
                         <p>Login</p>
                     </div>
+                    </Link>
                 </div>
             </nav>
 
