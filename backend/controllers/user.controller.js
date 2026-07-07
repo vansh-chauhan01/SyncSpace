@@ -34,11 +34,12 @@ export const loginUser = async(req , res)=>{
             return res.status(400).json({ message: "Wrong password or username" });
         }
         const token  = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        user.token = token;
         const obj = user.toObject(user);
         obj.password = undefined;
         res.cookie("access_token", token, {
             httpOnly : true,
-        }).status(200).json(obj);
+        }).status(200).json({token, obj});
     }catch(e){
         res.status(500).json({ message: "Error logging in user" });
     }

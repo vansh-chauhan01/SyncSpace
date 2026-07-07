@@ -17,7 +17,7 @@ import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-//import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../contexts/AuthContext';
 
 export default function Authentication() {
   const [username, setUsername] = useState("");
@@ -29,17 +29,17 @@ export default function Authentication() {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [open, setOpen] = useState(false);
-  //const { handleRegister, handleLogin } = React.useContext(AuthContext);
+  const { handleRegister, handleLogin } = React.useContext(AuthContext);
 
   const handleAuth = async () => {
     try {
       if (formState === 0) {
-        //await handleLogin(username, password);
+        await handleLogin(username, password);
       }
       if (formState === 1) {
-        // let result = await handleRegister(name, username, password);
-        // setMessage(result);
-        // setOpen(true);
+        let result = await handleRegister(name, password, username);
+        setMessage(result);
+        setOpen(true);
         setError("");
         setFormState(0);
         setPassword("");
@@ -246,24 +246,8 @@ export default function Authentication() {
                   alignItems: "center",
                 }}
               >
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={remember}
-                      onChange={(e) =>
-                        setRemember(e.target.checked)
-                      }
-                    />
-                  }
-                  label="Remember me"
-                />
+                
 
-                <Link
-                  href="#"
-                  underline="hover"
-                >
-                  Forgot password?
-                </Link>
               </Box>
             )}
 
