@@ -17,7 +17,8 @@ export const connectToSocket = (server) =>{
 
     io.on("connection" , (socket) =>{
 
-
+        console.log("connected")
+        
         socket.on("join-call", (path) =>{
             
             if(!connections[path]) connections[path] = []; // if room doesnt exsist create a new room
