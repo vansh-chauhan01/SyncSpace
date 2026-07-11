@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 
 import { createServer } from "http";// http express server ke sath socket.io ka use karne ke liye http server create karna padta hai
@@ -40,6 +41,7 @@ app.use(cors({
     origin: process.env.CLIENT_URL,
     credentials: true,
 }));
+app.use(cookieParser());
 
 app.use("/api/users", userRouter);
 

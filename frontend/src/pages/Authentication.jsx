@@ -116,7 +116,7 @@ export default function Authentication() {
         >
           <Typography variant="h4" fontWeight={700}>
             {formState === 0
-              ? "Welcome to BillPro"
+              ? "Welcome to Sync Spase"
               : "Create an Account"}
           </Typography>
 

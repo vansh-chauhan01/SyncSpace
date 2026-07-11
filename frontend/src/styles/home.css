@@ -1,0 +1,173 @@
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+
+
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    gap: 60px;
+}
+
+
+
+.homeImage {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.homeImage img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+}
+
+.text {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.text h1 {
+    color: #0066cc;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.text p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    height: 5.5rem;
+}
+
+.left,
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.left {
+    gap: 15px;
+}
+
+.right {
+    gap: 40px;
+}
+
+/* ---------- Responsive breakpoints ---------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .cards {
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .text h1 {
+        font-size: 2.4rem;
+    }
+    .text {
+        order: 1;
+    }
+
+    .homeImage {
+        order: 2;
+    }
+}
+
+/* Stack layout - small tablets / large phones */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .homeImage img {
+        max-width: 400px;
+    }
+
+    .text {
+        max-width: 100%;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .navbar {
+        padding: 15px 25px;
+        height: auto;
+    }
+
+    .right {
+        gap: 20px;
+    }
+    .text {
+        order: 1;
+    }
+
+    .homeImage {
+        order: 2;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    .navbar {
+    
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .homeImage img {
+        max-width: 280px;
+        margin-top: 30px;
+    }
+
+    .text {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .text h1 {
+        font-size: 1.8rem;
+    }
+
+    .text p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    /* MUI TextField + Button stack full width nicely */
+    .text .MuiTextField-root,
+    .text .MuiButton-root {
+        width: 100%;
+    }
+    .text {
+        order: 1;
+    }
+
+    .homeImage {
+        order: 2;
+    }
+}

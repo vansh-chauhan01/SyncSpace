@@ -44,3 +44,27 @@ export const loginUser = async(req , res)=>{
         res.status(500).json({ message: "Error logging in user" });
     }
 }
+
+
+export const isLoggedIn = async(req , res) =>{
+    try{
+        res.status(200).json({
+            authenticated: true,
+            user: req.user,
+        });
+    }catch(e){
+        res.status(500).json({message : "user is either not logged in or wrong credential"});
+    }
+}
+
+
+export const logout = async(req , res) =>{
+    try{
+        
+        res.clearCookie("access_token");
+        res.status(200).json({message : "user logged out successfully"});
+
+    }catch(e){
+        res.status(500).json({message : "couldnt logout"});
+    }
+}
