@@ -5,6 +5,8 @@ import userRouter from "./routes/user.route.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
+dotenv.config();
+
 
 import { createServer } from "http";// http express server ke sath socket.io ka use karne ke liye http server create karna padta hai
 import { Server } from "socket.io";// actual socket.io server 
@@ -17,7 +19,6 @@ const io = connectToSocket(server);// connect express and socket.io server toget
 
 
 
-dotenv.config();
 
 
 
@@ -32,9 +33,9 @@ const connect = async () =>{
     }
 }
 
-// app.get("/", (req , res) =>{
-//     res.send("hello world");
-// })
+app.get("/", (req , res) =>{
+    res.send("deployed successfully");
+})
 
 app.use(express.json());
 app.use(cors({
