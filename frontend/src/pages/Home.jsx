@@ -65,7 +65,7 @@ function Home() {
                     <h1 style={{color : '#0066cc'}}>Join Meeting call</h1>
                     <p>Video Calls worth showing up for</p>
                     
-                    <TextField id="outlined-basic" label="Outlined" variant="outlined" onChange={(e)=> setRoom(e.target.value) } onKeyDown={
+                    <TextField placeholder="Enter Room Name" id="outlined-basic" label="Room Name" variant="outlined" onChange={(e)=> setRoom(e.target.value) } onKeyDown={
                         (e)=>{
                             if(e.key == "Enter"){
                                 handleJoin();
