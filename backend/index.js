@@ -34,6 +34,7 @@ const connect = async () =>{
 }
 
 app.get("/", (req , res) =>{
+    console.log("GET / was called");
     res.send("deployed successfully");
 })
 
