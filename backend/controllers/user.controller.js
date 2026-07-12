@@ -38,7 +38,9 @@ export const loginUser = async(req , res)=>{
         const obj = user.toObject(user);
         obj.password = undefined;
         res.cookie("access_token", token, {
-            httpOnly : true,
+            httpOnly: true,
+    secure: true,
+    sameSite: "none",
         }).status(200).json({token, obj});
     }catch(e){
         res.status(500).json({ message: "Error logging in user" });
